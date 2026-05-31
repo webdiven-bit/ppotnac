@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>P.POTNAC MEDFARM LTD | Never a Barrier</title>
+  <meta name="description" content="P.POTNAC MEDFARM LTD – Value-added farm processing, quality control, mechanised farming, medical services. Distance is never a barrier.">
+  <link rel="shortcut icon" type="image/x-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234f8ef7'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/%3E%3C/svg%3E">
+  
+  <!-- Fonts: clean, professional, less "AI generic" -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --navy: #040c1e;
+      --navy-mid: #071028;
+      --navy-card: #0a1535;
+      --accent: #4f8ef7;
+      --accent2: #7fb3ff;
+      --gold: #c9a84c;
+      --text: #e8eeff;
+      --muted: #8899cc;
+      --border: rgba(79, 142, 247, 0.22);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--text);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* simple scrollbar - no extra decorations */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+    /* HERO - clean, minimal effects */
+    #banner {
+      background: linear-gradient(135deg, rgba(4,12,30,0.92) 0%, rgba(7,16,40,0.96) 100%), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" opacity="0.06"><path fill="none" stroke="%234f8ef7" stroke-width="1.2" d="M200 350 L500 200 L800 380 L1100 280"/><circle cx="300" cy="550" r="80" fill="%234f8ef7" opacity="0.04"/></svg>');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .banner-text {
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .banner-eyebrow {
+      font-size: 11px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+      font-weight: 500;
+    }
+
+    .banner-text h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(36px, 7vw, 80px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+
+    .banner-text h1 span { color: var(--accent2); }
+
+    .banner-text p {
+      font-size: clamp(15px, 2vw, 19px);
+      margin-top: 18px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 14px 40px;
+      background: linear-gradient(135deg, var(--accent), #3068d4);
+      color: #fff;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 32px;
+      box-shadow: 0 6px 20px rgba(79,142,247,0.3);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(79,142,247,0.4);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .scroll-hint i {
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(5px); }
+    }
+
+    /* SIDE NAV - original structure */
+    #sideNav {
+      width: 260px;
+      height: 100vh;
+      position: fixed;
+      right: -260px;
+      top: 0;
+      background: rgba(4,12,30,0.96);
+      backdrop-filter: blur(16px);
+      z-index: 200;
+      transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    nav ul { padding-left: 40px; }
+    nav ul li { list-style: none; margin: 22px 0; }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+      transition: 0.25s;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    nav ul li a:hover { color: #fff; letter-spacing: 4px; }
+
+    #menuBTN {
+      width: 50px; height: 50px;
+      background: rgba(79,142,247,0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      position: fixed;
+      right: 28px; top: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 300;
+      transition: all 0.25s ease;
+    }
+    #menuBTN:hover { background: rgba(79,142,247,0.25); transform: scale(1.03); }
+    #menuBTN img { width: 22px; filter: brightness(0) invert(1); }
+
+    /* SECTION STYLES */
+    section { padding: 100px 8%; }
+
+    .title-text {
+      text-align: center;
+      margin-bottom: 58px;
+    }
+
+    .title-text .overline {
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+    }
+
+    .title-text h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(24px, 4vw, 42px);
+      font-weight: 600;
+      margin-top: 12px;
+      line-height: 1.25;
+      color: #fff;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      margin: 20px auto 0;
+    }
+
+    /* intro / history text */
+    .features-text {
+      max-width: 780px;
+      margin: auto;
+      text-align: center;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.9;
+      background: rgba(10,21,53,0.4);
+      padding: 32px 28px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+    }
+
+    /* MISSION + VISION: clean text boxes - NO FAKE EMOJIS / icons inside */
+    .statements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .statement-block {
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px 28px;
+      transition: all 0.25s ease;
+    }
+
+    .statement-block:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 28px rgba(79,142,247,0.1);
+    }
+
+    .statement-block h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      border-left: 3px solid var(--accent);
+      padding-left: 18px;
+    }
+
+    .statement-content {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    .statement-content p {
+      margin-bottom: 16px;
+    }
+
+    .statement-content ul {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .statement-content li {
+      margin-bottom: 12px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .statement-content li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--accent2);
+    }
+
+    /* small note under mission/vision */
+    .core-note {
+      text-align: center;
+      margin-top: 36px;
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+      border-top: 1px dashed var(--border);
+      padding-top: 24px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* SERVICES grid */
+    #service {
+      background: linear-gradient(180deg, #040c1e, #071437);
+    }
+
+    .service-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 24px;
+    }
+
+    .single-service {
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      transition: 0.25s ease;
+    }
+
+    .single-service:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+
+    .single-service img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      background: #0f1a3a;
+      display: block;
+    }
+
+    /* fallback for missing images */
+    .single-service img[src*="pic"] {
+      background: linear-gradient(145deg, #0a1535, #071028);
+    }
+
+    /* social media */
+    .social-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .social-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 32px;
+      background: var(--navy-card);
+      border: 1px solid var(--border);
+      border-radius: 60px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 14px;
+      transition: 0.25s;
+    }
+
+    .social-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      background: rgba(79,142,247,0.1);
+    }
+
+    .social-card i { font-size: 18px; }
+    .social-card.facebook i { color: #1877f2; }
+    .social-card.tiktok i { color: #ff0050; }
+    .social-card.youtube i { color: #ff0000; }
+
+    /* footer */
+    #footer {
+      background: linear-gradient(180deg, #071437, #040c1e);
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-col h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .footer-col p, .footer-col a {
+      color: var(--muted);
+      font-size: 14px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--accent2); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 28px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    /* simple fade animation - clean */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 70px 5%; }
+      .statement-block h3 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<section id="banner">
+  <div class="banner-text">
+    <p class="banner-eyebrow">Est. 2025 · Nigeria</p>
+    <h1>P.<span>POTNAC</span> MEDFARM LTD</h1>
+    <p>Responding to your body, soul, and spirit is our priority</p>
+    <a href="#discover-main" class="btn-primary">Discover More</a>
+  </div>
+  <div class="scroll-hint">
+    <i class="fa fa-chevron-down"></i>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- SIDE NAVIGATION (original) -->
+<div id="sideNav">
+  <nav>
+    <ul>
+      <li><a href="#banner">Home</a></li>
+      <li><a href="#discover-main">Introduction</a></li>
+      <li><a href="#mission-vision-block">Mission & Vision</a></li>
+      <li><a href="#service">Services</a></li>
+      <li><a href="#testimonial">Social Media</a></li>
+      <li><a href="#footer">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+
+<div id="menuBTN">
+  <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='3' y1='12' x2='21' y2='12'%3E%3C/line%3E%3Cline x1='3' y1='6' x2='21' y2='6'%3E%3C/line%3E%3Cline x1='3' y1='18' x2='21' y2='18'%3E%3C/line%3E%3C/svg%3E" alt="menu">
+</div>
+
+<!-- DISCOVER MORE SECTION (History from image) -->
+<section id="discover-main" class="fade-in">
+  <div class="title-text">
+    <p class="overline">never a barrier</p>
+    <h1>Brief History</h1>
+    <div class="divider"></div>
+  </div>
+  <div class="features-text">
+    Founded in the year 2025, P.POTNAC MEDFARM LTD set out to give quality care, competence in behaviour, accountability, and convenience of medical and agro services — because <strong class="text-accent">distance is never a barrier</strong>.
+    <br><br>
+    We professionally turn farm products into delicious food as value-added processing, quality control, and effective marketing on your behalf. Our professionalism is saving by avoiding harm and people centred by responding to individual needs and values.
+  </div>
+</section>
+
+<!-- MISSION & VISION - with full image content, NO fake emojis inside boxes, just clean typography -->
+<section id="mission-vision-block" class="fade-in">
+  <div class="title-text">
+    <p class="overline">Our foundation</p>
+    <h1>Mission & Vision</h1>
+    <div class="divider"></div>
+  </div>
+
+  <div class="statements-grid">
+    <!-- MISSION STATEMENT - complete text from image -->
+    <div class="statement-block">
+      <h3>Mission</h3>
+      <div class="statement-content">
+        <p>We professionally turn farm products into delicious food as value-added processing, quality control, and effective marketing on your behalf.</p>
+        <p>Our professionalism is saving by avoiding harm and people centred by responding to individual needs and values.</p>
+        <ul>
+          <li>Improve our services continuously.</li>
+          <li>We are competent when it comes to integrated services.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- VISION STATEMENT - complete from image -->
+    <div class="statement-block">
+      <h3>Vision</h3>
+      <div class="statement-content">
+        <ul>
+          <li>Medical services</li>
+          <li>Feeding nation via mechanised farming.</li>
+          <li>Educating people of all class as responsibility.</li>
+          <li>Utilising nature to grow well and efficient.</li>
+        </ul>
+        <p style="margin-top: 18px;">A future where integrated medical care, sustainable agriculture, and education uplift every community.</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="core-note">
+    <i class="fa fa-leaf" style="color: var(--accent2); margin-right: 6px;"></i> People centred · Accountability · Competence · Never a barrier
+  </div>
+</section>
+
+<!-- SERVICES GALLERY (original layout, images preserved) -->
+<section id="service" class="fade-in">
+  <div class="title-text">
+    <p class="overline">What we offer</p>
+    <h1>Images of What We Offer</h1>
+    <div class="divider"></div>
+  </div>
+  <div class="service-box">
+    <div class="single-service"><img src="images/pic 1.jpg" alt="Value added processing" onerror="this.style.background='#0f1a3a';this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%227fb3ff%22 font-size=%2240%22%3E🌾%3C/text%3E%3C/svg%3E'"></div>
+    <div class="single-service"><img src="images/pic 2.jpg" alt="Quality control" onerror="this.style.background='#0f1a3a';this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%227fb3ff%22 font-size=%2240%22%3E🔬%3C/text%3E%3C/svg%3E'"></div>
+    <div class="single-service"><img src="images/pic 3.jpg" alt="Mechanised farming" onerror="this.style.background='#0f1a3a';this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%227fb3ff%22 font-size=%2240%22%3E🚜%3C/text%3E%3C/svg%3E'"></div>
+    <div class="single-service"><img src="images/pic 4.jpg" alt="Medical services" onerror="this.style.background='#0f1a3a';this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%227fb3ff%22 font-size=%2240%22%3E🩺%3C/text%3E%3C/svg%3E'"></div>
+    <div class="single-service"><img src="images/pic 5.jpg" alt="Education for all" onerror="this.style.background='#0f1a3a';this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%227fb3ff%22 font-size=%2240%22%3E📚%3C/text%3E%3C/svg%3E'"></div>
+    <div class="single-service"><img src="images/pic 6.jpg" alt="Nature efficiency" onerror="this.style.background='#0f1a3a';this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%227fb3ff%22 font-size=%2240%22%3E🌿%3C/text%3E%3C/svg%3E'"></div>
+  </div>
+</section>
+
+<!-- SOCIAL MEDIA SECTION (links from image) -->
+<section id="testimonial" class="fade-in">
+  <div class="title-text">
+    <p class="overline">Connect with us</p>
+    <h1>Find Us Online</h1>
+    <div class="divider"></div>
+  </div>
+  <div class="social-grid">
+    <a href="https://www.facebook.com/P.potnac" target="_blank" rel="noopener" class="social-card facebook">
+      <i class="fab fa-facebook"></i>
+      <span>Facebook / P.potnac</span>
+    </a>
+    <a href="https://www.tiktok.com/@p.potnac" target="_blank" rel="noopener" class="social-card tiktok">
+      <i class="fab fa-tiktok"></i>
+      <span>TikTok @p.potnac</span>
+    </a>
+    <a href="https://www.youtube.com/@p.potnac" target="_blank" rel="noopener" class="social-card youtube">
+      <i class="fab fa-youtube"></i>
+      <span>YouTube @p.potnac</span>
+    </a>
+  </div>
+  <p style="text-align: center; margin-top: 32px; font-size: 13px; color: var(--muted); letter-spacing: 0.5px;">
+    <i class="fa fa-globe"></i> Follow for farm innovations, medical outreach & community impact
+  </p>
+</section>
+
+<!-- FOOTER + CONTACT (phone number from image) -->
+<section id="footer" class="fade-in">
+  <div class="title-text">
+    <p class="overline">Get in touch</p>
+    <h1>Contact Us</h1>
+    <div class="divider"></div>
+  </div>
+  <div class="footer-row">
+    <div class="footer-col">
+      <h3>Accessibility</h3>
+      <p><i class="fa fa-clock"></i> Monday – Sunday: 24 Hours</p>
+      <p><i class="fa fa-map-marker-alt"></i> Nigeria (HQ: Abuja / Lagos corridor)</p>
+    </div>
+    <div class="footer-col">
+      <h3>Phone & Direct</h3>
+      <a href="tel:+2348107144897"><i class="fa fa-phone"></i> +234 810 714 4897</a>
+      <p><i class="fa fa-envelope"></i> info@ppotnacmedfarm.com</p>
+    </div>
+    <div class="footer-col">
+      <h3>Follow Us</h3>
+      <a href="https://www.facebook.com/P.potnac" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+      <a href="https://www.tiktok.com/@p.potnac" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+      <a href="https://www.youtube.com/@p.potnac" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 P.POTNAC MEDFARM LTD — Value-added processing · Quality control · People centred</p>
+    <p style="margin-top: 8px;"><i class="fa fa-quote-left"></i> Distance is never a barrier <i class="fa fa-quote-right"></i></p>
+  </div>
+</section>
+
+<script>
+  // side navigation toggle (clean)
+  const menuBTN = document.getElementById("menuBTN");
+  const sideNav = document.getElementById("sideNav");
+  sideNav.style.right = "-260px";
+  menuBTN.onclick = function () {
+    const open = sideNav.style.right === "0px";
+    sideNav.style.right = open ? "-260px" : "0px";
+  };
+  document.querySelectorAll("#sideNav a").forEach(link => {
+    link.addEventListener("click", () => {
+      sideNav.style.right = "-260px";
+    });
+  });
+
+  // scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
